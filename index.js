@@ -14,7 +14,6 @@ const cors = require("cors")
 const port = process.env.PORT || 8800
 const corsOpts = {
   origin: '*',
-
   methods: [
     'GET',
     'POST',
@@ -52,8 +51,7 @@ app.use("/api/posts", postRoute);
 app.use("/api/file", file);
 
 app.get("/hello", function (req, res) {
-   // populated!
-  res.send("hello");
+  res.send("am happy");
 });
 app.listen(port, () => {
   console.log("Backend server is running!");
