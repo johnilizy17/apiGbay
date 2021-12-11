@@ -10,6 +10,8 @@ const postRoute = require("./routes/posts");
 const file = require("./routes/file");
 var bodyParser = require('body-parser')
 const cors = require("cors")
+
+const port = process.env.Port || 8800
 const corsOpts = {
   origin: '*',
 
@@ -53,6 +55,6 @@ app.post("/hello", function (req, res) {
   console.log(req.body) // populated!
   res.send(200, req.body);
 });
-app.listen(8800, () => {
+app.listen(port, () => {
   console.log("Backend server is running!");
 });
