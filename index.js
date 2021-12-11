@@ -51,9 +51,9 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/file", file);
 
-app.post("/hello", function (req, res) {
-  console.log(req.body) // populated!
-  res.send(200, req.body);
+app.get("/hello", function (req, res) {
+   // populated!
+  res.send("hello");
 });
 app.listen(port, () => {
   console.log("Backend server is running!");
