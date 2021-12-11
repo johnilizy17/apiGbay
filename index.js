@@ -11,7 +11,7 @@ const file = require("./routes/file");
 var bodyParser = require('body-parser')
 const cors = require("cors")
 
-const port = process.env.Port || 8800
+const port = process.env.PORT || 8800
 const corsOpts = {
   origin: '*',
 
