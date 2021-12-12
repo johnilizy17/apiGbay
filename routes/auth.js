@@ -22,7 +22,6 @@ router.post("/register", async (req, res) => {
     console.log(err)
   }
 });
-
 //LOGIN
 router.post("/login", async (req, res) => {
 

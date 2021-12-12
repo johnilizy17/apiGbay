@@ -50,8 +50,22 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/file", file);
 
-app.get("/hello", function (req, res) {
-  res.send("am happy");
+app.get("/getusers", function (req, res) {
+  mongoose.connect(process.env.MONGO_URL, function (err, db) {
+    if (err) throw err;
+
+    var coll = db.collection('users');
+
+    coll.find({}).toArray(function (err, result) {
+        if (err) {
+            res.send(err);
+        } else {
+
+            res.send(JSON.stringify(result));
+        }
+    })
+
+});
 });
 app.listen(port, () => {
   console.log("Backend server is running!");
