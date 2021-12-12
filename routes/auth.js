@@ -3,7 +3,6 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 //REGISTER
 router.post("/register", async (req, res) => {
-  console.log(req.body)
   try {
     
     const salt = await bcrypt.genSalt(10);
@@ -41,13 +40,15 @@ router.post("/login", async (req, res) => {
 
     const validPassword = await bcrypt.compare(req.body.password, user.password)
     !validPassword && res.send("wrong password")
+    res.setHeader('Content-Type', 'text/plain');
+res.end('Cannot ' + req.method + ' ' + req.url);
    
     if(user && validPassword){
       res.status(200).json(user)
     }
   } catch (err) {
     console.log(err)
-    res.status(500).json(err)
+    
   }
 });
 
